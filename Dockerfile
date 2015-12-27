@@ -2,10 +2,10 @@ FROM nodesource/trusty-base
 MAINTAINER William Blankenship <wblankenship@nodesource.com>
 
 ENV NODE_VERSION 4.2.1
-ENV REPOSITORTY_URL
-ENV REPOSITORTY_BRANCH
-ENV APP_DIR_NAME
-ENV START_CMD
+ENV REPOSITORTY_URL https://github.com/appsflare/ludicrum-authentication.git
+ENV REPOSITORTY_BRANCH master
+ENV APP_DIR_NAME ludicrum-authentication
+ENV START_CMD "npm start"
 
 RUN curl "https://deb.nodesource.com/node_4.x/pool/main/n/nodejs/nodejs_$NODE_VERSION-1nodesource1~trusty1_amd64.deb" > node.deb \
  && dpkg -i node.deb \
@@ -20,7 +20,9 @@ RUN apt-get update \
  && apt-get upgrade -y --force-yes \
  && rm -rf /var/lib/apt/lists/*;
  
- RUN npm install -g forever
+ 
+RUN apt-get install git \
+ && npm install -g forever
 
 RUN mkdir srv \
     && cd srv
