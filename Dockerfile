@@ -5,7 +5,6 @@ ENV NODE_VERSION 4.2.1
 ENV REPOSITORTY_URL https://github.com/appsflare/ludicrum-authentication.git
 ENV REPOSITORTY_BRANCH master
 ENV APP_DIR_NAME ludicrum-authentication
-ENV START_CMD "npm start"
 
 RUN curl "https://deb.nodesource.com/node_4.x/pool/main/n/nodejs/nodejs_$NODE_VERSION-1nodesource1~trusty1_amd64.deb" > node.deb \
  && dpkg -i node.deb \
