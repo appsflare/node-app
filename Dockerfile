@@ -6,6 +6,8 @@ ENV REPOSITORTY_URL https://github.com/appsflare/ludicrum-authentication.git
 ENV REPOSITORTY_BRANCH master
 ENV APP_DIR_NAME ludicrum-authentication
 
+RUN echo "Node version $NODE_VERSION"
+
 RUN curl "https://deb.nodesource.com/node_4.x/pool/main/n/nodejs/nodejs_$NODE_VERSION-1nodesource1~trusty1_amd64.deb" > node.deb \
  && dpkg -i node.deb \
  && rm node.deb
@@ -26,7 +28,7 @@ RUN apt-get install git \
 CMD ["srv"]
 
 ##Creating working directory
-RUN mkdir -p \srv\www\
+RUN mkdir -p \srv\www\ \
 ##Setting working directory
 WORKDIR \srv\www\
 
