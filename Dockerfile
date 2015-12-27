@@ -31,7 +31,7 @@ RUN mkdir -p \srv\www\
 WORKDIR \srv\www\
 
 ##Cloning the git repo
-RUN git clone $REPOSITORY_URL --branch $REPOSITORTY_BRANCH \
+RUN git clone $REPOSITORY_URL
 
 ##Setting the work repo to app
 WORKDIR \srv\www\$APP_DIR_NAME
