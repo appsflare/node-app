@@ -34,7 +34,7 @@ WORKDIR \srv\www\
 RUN git clone $REPOSITORY_URL
 
 ##Setting the work repo to app
-WORKDIR \srv\www\$APP_DIR_NAME
+WORKDIR "\srv\www\$APP_DIR_NAME"
 RUN npm install
 
 ##Starting the node app
