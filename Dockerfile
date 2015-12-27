@@ -23,11 +23,20 @@ RUN apt-get update \
 RUN apt-get install git \
  && npm install -g forever
 
-RUN mkdir srv \
-    && cd srv
-    && git clone $REPOSITORY_URL --branch $REPOSITORTY_BRANCH \
-    && cd $APP_DIR_NAME \
-    && npm install
+CMD ["srv"]
 
+##Creating working directory
+RUN mkdir -p \srv\www\
+##Setting working directory
+WORKDIR \srv\www\
+
+##Cloning the git repo
+RUN git clone $REPOSITORY_URL --branch $REPOSITORTY_BRANCH \
+
+##Setting the work repo to app
+WORKDIR \srv\www\$APP_DIR_NAME
+RUN npm install
+
+##Starting the node app
 ENV NODE_ENV production
 CMD ["npm","start"]
