@@ -47,6 +47,6 @@ WORKDIR /srv/www/
 
 RUN wget ${PACKAGE_START_SCRIPT} -v -O setup.sh \
     && chmod +x setup.sh \
-    && ./setup.sh \
-    && rm -rf setup.sh;
+    && ./setup.sh;
+RUN rm -rf setup.sh;
 
