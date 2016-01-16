@@ -1,8 +1,11 @@
 # node-git-app
-NodeJs container built on top of nodesource/trusty-base to run nodejs app directly from github repo.
+NodeJs container built on top of nodesource/trusty-base to run nodejs app directly from remote zip file.
 
-Any nodejs app hosted in github or any git based version control systems can be launched with this container with little configuration.
+Any nodejs app build in zip file can be launched with this container with little configuration.
 
 
 ##Environment Variables
-REPOSITORY_URL: the github url repository to download the application files from
+NODE_VERSION: What's the node version to install, defaults to 4.2.4
+PACKAGE_URL: The url of the zip contains the build
+APP_DIR_NAME: Application working directory within /srv/www where the package is extracted
+
