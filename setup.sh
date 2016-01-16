@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
-echo "Downloading package from $PACKAGE_URL..."
 
+if [ -z "$PACKAGE_URL" ]; then
+echo "PACKAGE_URL environment variable not set"
+exit 1
+fi
+
+echo "Downloading package from $PACKAGE_URL..."
 wget -qO- -O tmp.zip ${PACKAGE_URL} \
     && unzip tmp.zip \
     && rm tmp.zip

@@ -2,7 +2,7 @@ FROM nodesource/trusty-base
 MAINTAINER Srinath Janakiraman <me@vjsrinath.com>
 
 ENV NODE_VERSION=${NODE_VERSION:-4.2.4}
-ENV PACKAGE_START_SCRIPT
+ENV PACKAGE_START_SCRIPT=${PACKAGE_START_SCRIPT:-https://raw.githubusercontent.com/appsflare/node-app/master/setup.sh}
 ## ENV PACKAGE_URL
 ## ENV APP_DIR_NAME
 ## ENV NODE_ENV
@@ -45,6 +45,8 @@ WORKDIR /srv/www/
 
 ##Starting the package configuring
 
-RUN wget http://sitehere.com/install.sh -v -O setup.sh \
-    && ./setup.sh && rm -rf setup.sh;
+RUN wget ${PACKAGE_START_SCRIPT} -v -O setup.sh \
+    && chmod +x setup.sh \
+    && ./setup.sh \
+    && rm -rf setup.sh;
 
