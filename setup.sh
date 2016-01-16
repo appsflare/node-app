@@ -2,7 +2,7 @@
 
 if [ -z "$PACKAGE_URL" ]; then
 echo "PACKAGE_URL environment variable not set"
-exit 1
+exit 0
 fi
 
 echo "Downloading package from $PACKAGE_URL..."
