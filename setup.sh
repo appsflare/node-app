@@ -19,4 +19,11 @@ echo "Setting work directory to $PWD..."
 
 WORK_DIR=$PWD
 
-##npm start
+if [ ! -d "package.json" ]; then
+echo "package.json doesn't exist. Application download might have been failed. Exiting..."
+exit 0
+fi
+
+if [ -d "package.json" ]; then
+npm start
+fi
