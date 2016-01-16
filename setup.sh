@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ -z "$PACKAGE_URL" ]; then
-echo "PACKAGE_URL environment variable not set"
+echo "PACKAGE_URL environment variable not set. Exiting..."
 exit 0
 fi
 
