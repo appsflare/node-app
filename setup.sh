@@ -15,6 +15,8 @@ cd $APP_DIR_NAME
 echo "Installing package dependencies..."
 npm install
 
-echo "Starting the application..."
+echo "Setting work directory to $PWD..."
 
-npm start
+WORK_DIR=$PWD
+
+##npm start
