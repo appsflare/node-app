@@ -44,13 +44,9 @@ WORKDIR ${WORK_DIR}
 ##WORKDIR ${APP_DIR_NAME}
 ##RUN npm install;
 
-##Starting the package configuring
+##Starting the package configuration
 
 RUN wget ${PACKAGE_START_SCRIPT} -v -O setup.sh \
-    && chmod +x setup.sh \
-    && ./setup.sh \
-    && rm -rf setup.sh;
-
-WORKDIR ${WORK_DIR}
-cmd ["npm", "start"]
+    && chmod +x setup.sh;
+cmd ["./setup.sh"]
 
