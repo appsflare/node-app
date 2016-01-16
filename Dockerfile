@@ -2,8 +2,10 @@ FROM nodesource/trusty-base
 MAINTAINER Srinath Janakiraman <me@vjsrinath.com>
 
 ENV NODE_VERSION=${NODE_VERSION:-4.2.4}
-ENV PACKAGE_URL
-ENV APP_DIR_NAME
+ENV PACKAGE_START_SCRIPT
+## ENV PACKAGE_URL
+## ENV APP_DIR_NAME
+## ENV NODE_ENV
 
 RUN echo "Node version ${NODE_VERSION}"
 
@@ -36,15 +38,13 @@ RUN mkdir -p /srv/www/;
 ##Setting working directory
 WORKDIR /srv/www/
 
-##Cloning the git repo
-RUN wget -qO- -O tmp.zip ${PACKAGE_URL} \
-    && unzip tmp.zip \
-    && rm tmp.zip;
 
 ##Setting the work repo to app
-WORKDIR ${APP_DIR_NAME}
-RUN npm install;
+##WORKDIR ${APP_DIR_NAME}
+##RUN npm install;
 
-##Starting the node app
-ENV NODE_ENV production
-CMD ["npm","start"]
+##Starting the package configuring
+
+RUN wget http://sitehere.com/install.sh -v -O setup.sh \
+    && ./setup.sh && rm -rf setup.sh;
+
