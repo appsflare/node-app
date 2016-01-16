@@ -2,8 +2,8 @@ FROM nodesource/trusty-base
 MAINTAINER Srinath Janakiraman <me@vjsrinath.com>
 
 ENV NODE_VERSION=${NODE_VERSION:-4.2.4}
-ENV PACKAGE_URL=${PACKAGE_URL:-https://github.com/appsflare/ludicrum-authentication/archive/master.zip}
-ENV APP_DIR_NAME=${APP_DIR_NAME:-/srv/www/ludicrum-authentication-master}
+ENV PACKAGE_URL
+ENV APP_DIR_NAME
 
 RUN echo "Node version ${NODE_VERSION}"
 
