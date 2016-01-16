@@ -3,8 +3,8 @@ MAINTAINER Srinath Janakiraman <me@vjsrinath.com>
 
 ENV NODE_VERSION=${NODE_VERSION:-4.2.4}
 ENV PACKAGE_START_SCRIPT=${PACKAGE_START_SCRIPT:-https://raw.githubusercontent.com/appsflare/node-app/master/setup.sh}
-ENV PACKAGE_URL=https://github.com/appsflare/ludicrum-authentication/archive/master.zip
-ENV APP_DIR_NAME=ludicrum-authentication-master
+##ENV PACKAGE_URL=https://github.com/appsflare/ludicrum-authentication/archive/master.zip
+##ENV APP_DIR_NAME=ludicrum-authentication-master
 ENV WORK_DIR=/srv/www/
 ## ENV NODE_ENV
 
@@ -35,9 +35,9 @@ RUN npm install -g forever;
 #CMD ["srv"]
 
 ##Creating working directory
-RUN mkdir -p /srv/www/;
+RUN mkdir -p ${WORK_DIR};
 ##Setting working directory
-WORKDIR /srv/www/
+WORKDIR ${WORK_DIR}
 
 
 ##Setting the work repo to app
@@ -48,8 +48,8 @@ WORKDIR /srv/www/
 
 RUN wget ${PACKAGE_START_SCRIPT} -v -O setup.sh \
     && chmod +x setup.sh \
-    && ./setup.sh;
-RUN rm -rf setup.sh;
+    && ./setup.sh \
+    && rm -rf setup.sh;
 
 WORKDIR ${WORK_DIR}
 cmd ["npm", "start"]
