@@ -1,5 +1,5 @@
 FROM nodesource/trusty-base
-MAINTAINER William Blankenship <wblankenship@nodesource.com>
+MAINTAINER Srinath Janakiraman <me@vjsrinath.com>
 
 ENV NODE_VERSION 4.2.1
 ENV REPOSITORTY_URL https://github.com/appsflare/ludicrum-authentication.git
@@ -28,7 +28,7 @@ RUN apt-get install git \
 CMD ["srv"]
 
 ##Creating working directory
-RUN mkdir -p \srv\www\ \
+RUN mkdir -p \srv\www\
 ##Setting working directory
 WORKDIR \srv\www\
 
