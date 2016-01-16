@@ -6,7 +6,7 @@ exit 0
 fi
 
 echo "Downloading package from $PACKAGE_URL..."
-wget -qO- -O tmp.zip ${PACKAGE_URL} \
+wget -qO- -O tmp.zip $PACKAGE_URL \
     && unzip tmp.zip \
     && rm tmp.zip
 
